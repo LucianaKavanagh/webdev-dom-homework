@@ -142,9 +142,7 @@ function addComment() {
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("BEGIN_QUOTE", "<div class='quote'>")
-      .replaceAll("END_QUOTE", "</div>"),
+        .replaceAll('"', "&quot;"),
       dataTime: date.toLocaleString(),
       comm: `${text.value}`
         .replaceAll("&", "&amp;")
@@ -152,9 +150,7 @@ function addComment() {
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replace("|", "<div class='quote'>")
-        .replace("|", "</div>")
-        .replaceAll("BEGIN_QUOTE", "<div class='quote'>")
-      .replaceAll("END_QUOTE", "</div>"),
+        .replace("|", "</div>"),
       likesUser: false,
       quantityLikes: 0,
       class: "like-button",
@@ -189,7 +185,7 @@ function replyComment(event) {
     const comment = event.target.closest('.comment');
     const commentHeader = comment.querySelector('.comment-header > div:first-child').textContent;
     const commentText = comment.querySelector('.comment-text').textContent;
-    const replyText = `QUOTE_BEGIN@${commentHeader}, ${commentText}QUOTE_END,`;
+    const replyText = `@${commentHeader}, ${commentText},`;
     text.value = replyText;
     text.focus();
   }
