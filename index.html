@@ -185,7 +185,7 @@ function replyComment(event) {
     const comment = event.target.closest('.comment');
     const commentHeader = comment.querySelector('.comment-header > div:first-child').textContent;
     const commentText = comment.querySelector('.comment-text').textContent;
-    const replyText = `@${commentHeader}, ${commentText},`;
+    const replyText = `>${commentHeader}, ${commentText},`;
     text.value = replyText;
     text.focus();
   }
